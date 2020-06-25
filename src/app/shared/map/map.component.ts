@@ -12,10 +12,12 @@ export class MapComponent implements OnInit {
   map:any;
   urlTemplate: string;
   center: number[];
+  attribution: string;
   @Input() mapId = 'mapid';
-  constructor({center, urlTemplate} : MapConfig) {
+  constructor({center, urlTemplate, attribution} : MapConfig) {
     this.center = center;
     this.urlTemplate = urlTemplate;
+    this.attribution = attribution;
   }
 
   ngOnInit(): void {
@@ -26,7 +28,7 @@ export class MapComponent implements OnInit {
   initMap() {
     this.map = L.map(this.mapId).setView([this.center[0],this.center[1]], 14);
     L.tileLayer(this.urlTemplate, {
-      attribution: ''
+      attribution: this.attribution
     }).addTo(this.map);
   }
 
