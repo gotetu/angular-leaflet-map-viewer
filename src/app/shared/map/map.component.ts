@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import * as L from 'leaflet';
 
+import { MapConfig } from 'src/app/config/map-config';
+
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -8,21 +10,22 @@ import * as L from 'leaflet';
 })
 export class MapComponent implements OnInit {
   map:any;
-  private mapUrl: string = 'https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png';
+  urlTemplate: string;
+  center: number[];
   @Input() mapId = 'mapid';
-  constructor() { }
+  constructor({center, urlTemplate} : MapConfig) {
+    this.center = center;
+    this.urlTemplate = urlTemplate;
+  }
 
   ngOnInit(): void {
   }
   ngAfterViewInit() {
-    // Musashi-Kosugi station.
-    const lat = 35.5766335;
-    const lon = 139.6572773;
-    this.initMap(lat,lon);
+    this.initMap();
   }
-  initMap(lat: number, lon: number) {
-    this.map = L.map(this.mapId).setView([lat, lon], 14);
-    L.tileLayer(this.mapUrl, {
+  initMap() {
+    this.map = L.map(this.mapId).setView([this.center[0],this.center[1]], 14);
+    L.tileLayer(this.urlTemplate, {
       attribution: ''
     }).addTo(this.map);
   }
