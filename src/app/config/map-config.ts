@@ -12,7 +12,7 @@ const mapConfig : MapConfig = {
 })
 
 export abstract class MapConfig {
-    readonly center: number[];
-    readonly urlTemplate: string;
-    readonly attribution: string;
+    readonly center: number[];  // 中心点
+    readonly urlTemplate: string;  // url
+    readonly attribution: string;  // 出典
 }
