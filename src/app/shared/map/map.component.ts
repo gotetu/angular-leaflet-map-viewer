@@ -10,12 +10,14 @@ import { MapConfig } from 'src/app/config/map-config';
 })
 export class MapComponent implements OnInit {
   map:any;
-  urlTemplates: string[];
   center: number[];
+  layerNames: string[];
+  urlTemplates: string[];
   attributions: string[];
   @Input() mapId = 'mapid';
-  constructor({center, urlTemplates, attributions} : MapConfig) {
+  constructor({center, layerNames, urlTemplates, attributions} : MapConfig) {
     this.center = center;
+    this.layerNames = layerNames;
     this.urlTemplates = urlTemplates;
     this.attributions = attributions;
   }
@@ -27,9 +29,15 @@ export class MapComponent implements OnInit {
   }
   initMap() {
     this.map = L.map(this.mapId).setView([this.center[0],this.center[1]], 14);
-    L.tileLayer(this.urlTemplates[0], {
-      attribution: this.attributions[0]
-    }).addTo(this.map)
+    let layerControl = L.control.layers();
+    for (let i = 0; i < this.urlTemplates.length; i++) {
+      layerControl.addBaseLayer(
+        L.tileLayer(this.urlTemplates[i], {
+          attribution: this.attributions[i]
+        }),this.layerNames[i]);
+    }
+    layerControl.addTo(this.map);
+
   }
 
 }
