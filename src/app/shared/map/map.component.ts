@@ -27,19 +27,35 @@ export class MapComponent implements OnInit {
   ngAfterViewInit() {
     this.initMap();
   }
+  
+  /**
+   * 地図初期設定.
+   */
   initMap() {
     this.map = L.map(this.mapId, {
       zoomControl: false
     }).setView([this.center[0],this.center[1]], 14);
 
-    // 初期表示レイヤ設定
+    this.initLayer();
+    this.initBaseLayer();
+    this.initMapLayout();
+  }
+
+  /**
+   * 初期表示レイヤを設定する.
+   */
+  initLayer() {
     if (this.urlTemplates.length > 0) {
       L.tileLayer(this.urlTemplates[0], {
         attribution: this.attributions[0]
       }).addTo(this.map);
     }
+  }
 
-    // レイヤ設定
+  /**
+   * ベースレイヤを設定する.
+   */
+  initBaseLayer() {
     let layerControl = L.control.layers(null,null,{position:"topleft"})
     for (let i = 0; i < this.urlTemplates.length; i++) {
       layerControl.addBaseLayer(
@@ -48,12 +64,16 @@ export class MapComponent implements OnInit {
         }),this.layerNames[i]);
     }
     layerControl.addTo(this.map);
+  }
 
+  /**
+   * 地図レイアウトを設定する.
+   */
+  initMapLayout() {
     // スケール表示（フィート表記：OFF）
     L.control.scale({imperial:false}).addTo(this.map);
     // ズームコントロール
     L.control.zoom({position:"bottomleft"}).addTo(this.map);
-
   }
 
 }
