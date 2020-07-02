@@ -23,11 +23,25 @@ export class MapComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const iconRetinaUrl = 'src/assets/marker-icon-2x.png';
+    const iconUrl = 'src/assets/marker-icon.png';
+    const shadowUrl = 'src/assets/marker-shadow.png';
+    const iconDefault = L.icon({
+      iconRetinaUrl,
+      iconUrl,
+      shadowUrl,
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      tooltipAnchor: [16, -28],
+      shadowSize: [41, 41]
+    });
+    L.Marker.prototype.options.icon = iconDefault;
   }
   ngAfterViewInit() {
     this.initMap();
   }
-  
+
   /**
    * 地図初期設定.
    */
@@ -74,6 +88,18 @@ export class MapComponent implements OnInit {
     L.control.scale({imperial:false}).addTo(this.map);
     // ズームコントロール
     L.control.zoom({position:"bottomleft"}).addTo(this.map);
+
+    this.plotMarket(35.5746825,139.66261699999995);
+  }
+
+  /**
+   * 地図にマーカーをプロットする
+   * 
+   * @param lat 緯度
+   * @param lon 軽度
+   */
+  public plotMarket(lat: number, lon: number) {
+    L.marker([lat, lon]).addTo(this.map);
   }
 
 }
