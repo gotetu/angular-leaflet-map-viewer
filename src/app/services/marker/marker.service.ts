@@ -14,7 +14,7 @@ export class MarkerService {
    * @param map ƒ}ƒbƒvî•ñ
    */
   makeMarker(map: L.Map) {
-    const lat = 135.5746825;
+    const lat = 35.5746825;
     const lon = 139.66261699999995;
     L.marker([lat, lon]).addTo(map);
   }

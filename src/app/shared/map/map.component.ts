@@ -91,18 +91,6 @@ export class MapComponent implements OnInit {
     L.control.scale({imperial:false}).addTo(this.map);
     // ズームコントロール
     L.control.zoom({position:"bottomleft"}).addTo(this.map);
-
-    this.plotMarket(35.5746825,139.66261699999995);
-  }
-
-  /**
-   * 地図にマーカーをプロットする
-   * 
-   * @param lat 緯度
-   * @param lon 軽度
-   */
-  public plotMarket(lat: number, lon: number) {
-    L.marker([lat, lon]).addTo(this.map);
   }
 
 }
