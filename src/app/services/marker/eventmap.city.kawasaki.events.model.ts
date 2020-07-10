@@ -1,150 +1,150 @@
 /**
- * ìès‚ÌƒCƒxƒ“ƒgî•ñ ƒI[ƒvƒ“ƒf[ƒ^ƒ‚ƒfƒ‹.
+ * å·å´å¸‚ã®ã‚¤ãƒ™ãƒ³ãƒˆæƒ…å ± ã‚ªãƒ¼ãƒ—ãƒ³ãƒ‡ãƒ¼ã‚¿ãƒ¢ãƒ‡ãƒ«.
  * @remarks
- * ƒCƒxƒ“ƒgAPI‚©‚ç“¾‚ç‚ê‚éî•ñ‚ğƒ‚ƒfƒ‹‰»‚µ‚½‚à‚ÌB
+ * ã‚¤ãƒ™ãƒ³ãƒˆAPIã‹ã‚‰å¾—ã‚‰ã‚Œã‚‹æƒ…å ±ã‚’ãƒ¢ãƒ‡ãƒ«åŒ–ã—ãŸã‚‚ã®ã€‚
  * @see https://eventapp.city.kawasaki.jp/data/api/v1/reference.html
  */
 
 /**
- * ƒCƒxƒ“ƒgî•ñiƒy[ƒWj.
+ * ã‚¤ãƒ™ãƒ³ãƒˆæƒ…å ±ï¼ˆãƒšãƒ¼ã‚¸ï¼‰.
  * @remarks
- * ƒCƒxƒ“ƒgAPI‚©‚ç“¾‚ç‚ê‚é‚Pƒy[ƒW‚Ô‚ñ‚Ìî•ñB
+ * ã‚¤ãƒ™ãƒ³ãƒˆAPIã‹ã‚‰å¾—ã‚‰ã‚Œã‚‹ï¼‘ãƒšãƒ¼ã‚¸ã¶ã‚“ã®æƒ…å ±ã€‚
  */
 export interface EventPage {
-    /** ƒy[ƒW”Ô† */
+    /** ãƒšãƒ¼ã‚¸ç•ªå· */
     page: number;
-    /** Å‘åƒy[ƒW”Ô† */
+    /** æœ€å¤§ãƒšãƒ¼ã‚¸ç•ªå· */
     total_pages: number;
-    /** ‘Œ” */
+    /** ç·ä»¶æ•° */
     total_numbers: number;
-    /** ƒCƒxƒ“ƒgî•ñƒŠƒXƒg */
+    /** ã‚¤ãƒ™ãƒ³ãƒˆæƒ…å ±ãƒªã‚¹ãƒˆ */
     event_data: Event[];
 }
 
 /**
- * ƒCƒxƒ“ƒgî•ñ.
+ * ã‚¤ãƒ™ãƒ³ãƒˆæƒ…å ±.
  */
 export interface Event {
-    /** ƒCƒxƒ“ƒg–¼Ì */
+    /** ã‚¤ãƒ™ãƒ³ãƒˆåç§° */
     title: string;
-    /** ƒCƒxƒ“ƒgŠT—v */
+    /** ã‚¤ãƒ™ãƒ³ãƒˆæ¦‚è¦ */
     content: string;
-    /** ƒXƒe[ƒ^ƒX */
+    /** ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ */
     status: string;
-    /** ƒXƒe[ƒ^ƒXi•â‘«j */
+    /** ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ï¼ˆè£œè¶³ï¼‰ */
     status_ext: string;
-    /** ŠJÃ“úƒŠƒXƒg */
+    /** é–‹å‚¬æ—¥ãƒªã‚¹ãƒˆ */
     date_list: EventDate[];
-    /** ƒCƒxƒ“ƒg‚Ìí•Ê */
+    /** ã‚¤ãƒ™ãƒ³ãƒˆã®ç¨®åˆ¥ */
     type1: string;
-    /** ƒCƒxƒ“ƒg‚Ìí•Êiå‘Ìj */
+    /** ã‚¤ãƒ™ãƒ³ãƒˆã®ç¨®åˆ¥ï¼ˆä¸»ä½“ï¼‰ */
     type2: string;
-    /** ‘ÎÛÒ */
+    /** å¯¾è±¡è€… */
     target: string;
-    /** ‘ÎÛÒi•â‘«j */
+    /** å¯¾è±¡è€…ï¼ˆè£œè¶³ï¼‰ */
     target_ext: string;
-    /** ‘ÎÛÒi«•Êj */
+    /** å¯¾è±¡è€…ï¼ˆæ€§åˆ¥ï¼‰ */
     target_sex: string;
-    /** ‘ÎÛÒi’nˆæj */
+    /** å¯¾è±¡è€…ï¼ˆåœ°åŸŸï¼‰ */
     target_area: string;
-    /** ‘ÎÛÒi’nˆæ•â‘«j */
+    /** å¯¾è±¡è€…ï¼ˆåœ°åŸŸè£œè¶³ï¼‰ */
     target_area_ext: string;
-    /** ŠJÃêŠ */
+    /** é–‹å‚¬å ´æ‰€ */
     place: string;
-    /** ŠJÃêŠi—X•Ö”Ô†j */
+    /** é–‹å‚¬å ´æ‰€ï¼ˆéƒµä¾¿ç•ªå·ï¼‰ */
     place_zip: string;
-    /** ŠJÃêŠiZŠj */
+    /** é–‹å‚¬å ´æ‰€ï¼ˆä½æ‰€ï¼‰ */
     place_adr: string;
-    /** ŠJÃêŠiˆÜ“xj */
+    /** é–‹å‚¬å ´æ‰€ï¼ˆç·¯åº¦ï¼‰ */
     place_lat: number;
-    /** ŠJÃêŠiŒy“xj */
+    /** é–‹å‚¬å ´æ‰€ï¼ˆè»½åº¦ï¼‰ */
     place_lon: number;
-    /** Q‰Á”ï—pi•â‘«j */
+    /** å‚åŠ è²»ç”¨ï¼ˆè£œè¶³ï¼‰ */
     cost_ext: string;
-    /** ’èˆõi•â‘«j */
+    /** å®šå“¡ï¼ˆè£œè¶³ï¼‰ */
     capacity_ext: string;
-    /** \‚µ‚İ•û–@ƒŠƒXƒg */
+    /** ç”³ã—è¾¼ã¿æ–¹æ³•ãƒªã‚¹ãƒˆ */
     entry_list: Entry[];
-    /** ‚»‚Ì‘¼”õl‚È‚Ç */
+    /** ãã®ä»–å‚™è€ƒãªã© */
     note: string;
-    /** ŠÖ˜AURLƒŠƒXƒg */
+    /** é–¢é€£URLãƒªã‚¹ãƒˆ */
     rel_list: RelationUrl[];
-    /** åÃÒ */
+    /** ä¸»å‚¬è€… */
     organizer: string;
-    /** –â‚¢‡‚í‚¹æƒŠƒXƒg */
+    /** å•ã„åˆã‚ã›å…ˆãƒªã‚¹ãƒˆ */
     contact_list: Contact[];
-    /** ÅIXV“ú */
+    /** æœ€çµ‚æ›´æ–°æ—¥ */
     upd_date: string;
-    /** “o˜^“ú */
+    /** ç™»éŒ²æ—¥ */
     created_date: string;
 }
 
 /**
- * –â‚¢‡‚í‚¹æ.
+ * å•ã„åˆã‚ã›å…ˆ.
  */
 export interface Contact {
-    /** –â‚¢‡‚í‚¹æ */
+    /** å•ã„åˆã‚ã›å…ˆ */
     contact: string;
-    /** “d˜b”Ô† */
+    /** é›»è©±ç•ªå· */
     contact_tel: string;
-    /** FAX”Ô† */
+    /** FAXç•ªå· */
     contact_fax: string;
-    /** ƒ[ƒ‹ƒAƒhƒŒƒX */
+    /** ãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹ */
     contact_mail: string;
-    /** •â‘« */
+    /** è£œè¶³ */
     contact_ext: string;
 }
 
 /**
- * ŠÖ˜AURL.
+ * é–¢é€£URL.
  */
 export interface RelationUrl {
-    /** ŠÖ˜AURLialtƒeƒLƒXƒgj */
+    /** é–¢é€£URLï¼ˆaltãƒ†ã‚­ã‚¹ãƒˆï¼‰ */
     rel_alt: string;
-    /** ŠÖ˜AURL */
+    /** é–¢é€£URL */
     rel_url: string;
 }
 
 /**
- * \‚µ‚İ•û–@.
+ * ç”³ã—è¾¼ã¿æ–¹æ³•.
  * */
 export interface Entry {
-    /** \‚µ‚İŠJn“úi“ú•tj */
+    /** ç”³ã—è¾¼ã¿é–‹å§‹æ—¥ï¼ˆæ—¥ä»˜ï¼‰ */
     entry_from?: string;
-    /** \‚µ‚İ’÷Ø“úi“ú•tj */
+    /** ç”³ã—è¾¼ã¿ç· åˆ‡æ—¥ï¼ˆæ—¥ä»˜ï¼‰ */
     entry_to?: string;
-    /** “d˜b”Ô† */
+    /** é›»è©±ç•ªå· */
     entry_tel: string;
-    /** FAX”Ô† */
+    /** FAXç•ªå· */
     entry_fax: string;
-    /** ƒ[ƒ‹ƒAƒhƒŒƒX */
+    /** ãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹ */
     entry_mail: string;
     /** URL */
     entry_url: string;
-    /** —X•Ö”Ô† */
+    /** éƒµä¾¿ç•ªå· */
     entry_postcode: string;
-    /** ˆ¶æ */
+    /** å®›å…ˆ */
     entry_post: string;
-    /** •â‘« */
+    /** è£œè¶³ */
     entry_ext: string;
-    /** \‚µ‚İŠJn“úi—j“új */
+    /** ç”³ã—è¾¼ã¿é–‹å§‹æ—¥ï¼ˆæ›œæ—¥ï¼‰ */
     entry_to_w?: string;
-    /** \‚µ‚İ’÷Ø“úi—j“új */
+    /** ç”³ã—è¾¼ã¿ç· åˆ‡æ—¥ï¼ˆæ›œæ—¥ï¼‰ */
     entry_from_w?: string;
 }
 
 /**
- * ŠJÃ“ú.
+ * é–‹å‚¬æ—¥.
  */
 export interface EventDate {
-    /** ŠJÃ“ú */
+    /** é–‹å‚¬æ—¥ */
     date: string;
-    /** ŠJÃŠÔ(from) */
+    /** é–‹å‚¬æ™‚é–“(from) */
     time_from: string;
-    /** ŠJÃŠÔ(to) */
+    /** é–‹å‚¬æ™‚é–“(to) */
     time_to: string;
-    /** ŠJÃ“ú—áŠO */
+    /** é–‹å‚¬æ—¥æ™‚ä¾‹å¤– */
     time_ext: string;
-    /** ŠJÃ“úi—j“új */
+    /** é–‹å‚¬æ—¥ï¼ˆæ›œæ—¥ï¼‰ */
     date_w: string;
 }
