@@ -4,6 +4,8 @@ import * as L from 'leaflet';
 import { MapConfig } from 'src/app/config/map-config';
 import { MarkerService } from 'src/app/services/marker/marker.service';
 
+import {EventPage} from 'src/app/services/marker/eventmap.city.kawasaki.events.model';
+
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -16,6 +18,7 @@ export class MapComponent implements OnInit {
   urlTemplates: string[];
   attributions: string[];
   @Input() mapId = 'mapid';
+  private eventPage: EventPage;
   constructor({center, layerNames, urlTemplates, attributions} : MapConfig,
     private marker: MarkerService) {
     this.center = center;
@@ -42,6 +45,9 @@ export class MapComponent implements OnInit {
   }
   ngAfterViewInit() {
     this.initMap();
+
+    this.marker.getEventPage().subscribe(data => this.eventPage = data);
+    console.log(this.eventPage);
     this.marker.makeMarker(this.map);
   }
 
