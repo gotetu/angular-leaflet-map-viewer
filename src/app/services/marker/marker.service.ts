@@ -11,7 +11,8 @@ import { EventPage } from './eventmap.city.kawasaki.events.model';
 })
 export class MarkerService {
   private eventPage: EventPage;
-  private targetUrl = 'https://eventapp.city.kawasaki.jp/data/api/v1/events';
+//  private targetUrl = 'https://eventapp.city.kawasaki.jp/data/api/v1/events';
+  private targetUrl = '/assets/events.json';
   constructor(private http: HttpClient) { }
 
   /**
@@ -24,13 +25,4 @@ export class MarkerService {
     return this.http.get<EventPage>(this.targetUrl);
   }
 
-  /**
-   * マーカーを表示する.
-   * @param map マップ情報
-   */
-  makeMarker(map: L.Map) {
-    const lat = 35.5746825;
-    const lon = 139.66261699999995;
-    L.marker([lat, lon]).addTo(map);
-  }
 }

@@ -18,7 +18,6 @@ export class MapComponent implements OnInit {
   urlTemplates: string[];
   attributions: string[];
   @Input() mapId = 'mapid';
-  private eventPage: EventPage;
   constructor({center, layerNames, urlTemplates, attributions} : MapConfig,
     private marker: MarkerService) {
     this.center = center;
@@ -45,10 +44,7 @@ export class MapComponent implements OnInit {
   }
   ngAfterViewInit() {
     this.initMap();
-
-    this.marker.getEventPage().subscribe(data => this.eventPage = data);
-    console.log(this.eventPage);
-    this.marker.makeMarker(this.map);
+    this.marker.getEventPage().subscribe(data => this.plotEventPage(data));
   }
 
   /**
@@ -97,6 +93,19 @@ export class MapComponent implements OnInit {
     L.control.scale({imperial:false}).addTo(this.map);
     // ズームコントロール
     L.control.zoom({position:"bottomleft"}).addTo(this.map);
+  }
+
+  /**
+   * イベント情報をプロットする.
+   * @remakrs
+   * 本来であればMapComponentsの処理ではないが、暫定的に。
+   */
+  plotEventPage(eventPage: EventPage) {
+    for (const event of eventPage.event_data) {
+      L.marker([event.place_lat, event.place_lon],
+        {title: `${event.title}`}).addTo(this.map);
+      console.log(`${event.title} ${event.place_lat} ${event.place_lon}`);
+    }
   }
 
 }
