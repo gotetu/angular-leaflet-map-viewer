@@ -104,7 +104,6 @@ export class MapComponent implements OnInit {
     for (const event of eventPage.event_data) {
       L.marker([event.place_lat, event.place_lon],
         {title: `${event.title}`}).addTo(this.map);
-      console.log(`${event.title} ${event.place_lat} ${event.place_lon}`);
     }
   }
 
