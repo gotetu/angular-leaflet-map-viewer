@@ -103,7 +103,8 @@ export class MapComponent implements OnInit {
   plotEventPage(eventPage: EventPage) {
     for (const event of eventPage.event_data) {
       L.marker([event.place_lat, event.place_lon],
-        {title: `${event.title}`}).addTo(this.map);
+        {title: `${event.title}`}).addTo(this.map)
+        .bindPopup(`${event.title}`);
     }
   }
 
