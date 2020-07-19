@@ -104,7 +104,8 @@ export class MapComponent implements OnInit {
     for (const event of eventPage.event_data) {
       L.marker([event.place_lat, event.place_lon],
         {title: `${event.title}`}).addTo(this.map)
-        .bindPopup(`${event.title}`);
+        .bindPopup(`${event.title}<br/>${event.content}`);
+        /* html のテンプレート機能を使えば構造化された情報を楽に表示できるかもしれない */
     }
   }
 
