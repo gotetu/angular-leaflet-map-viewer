@@ -6,15 +6,17 @@ import { AppComponent } from './app.component';
 
 import { SharedModule } from './shared/shared.module';
 import { MarkerService } from './services/marker/marker.service';
+import {MapFrameModule} from './map-frame/map-frame.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     SharedModule,
     HttpClientModule,
+    MapFrameModule,
   ],
   providers: [MarkerService],
   bootstrap: [AppComponent]

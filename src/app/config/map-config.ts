@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
-const mapConfig : MapConfig = {
-    center: [35.5766335,139.6572773],
+const mapConfig: MapConfig = {
+    center: [35.5766335, 139.6572773],
     layerNames: [
         '地理院地図 標準地図',
         '地理院地図 淡色地図',

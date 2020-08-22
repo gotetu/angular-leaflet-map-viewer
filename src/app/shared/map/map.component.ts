@@ -13,14 +13,13 @@ import {EventPage} from 'src/app/services/marker/eventmap.city.kawasaki.events.m
 })
 export class MapComponent implements OnInit, AfterViewInit {
   map: any;
-  center: number[];
   layerNames: string[];
   urlTemplates: string[];
   attributions: string[];
   @Input() mapId = 'mapid';
-  constructor({center, layerNames, urlTemplates, attributions}: MapConfig,
+  @Input() center = [0, 0];
+  constructor({layerNames, urlTemplates, attributions}: MapConfig,
               private marker: MarkerService) {
-    this.center = center;
     this.layerNames = layerNames;
     this.urlTemplates = urlTemplates;
     this.attributions = attributions;
