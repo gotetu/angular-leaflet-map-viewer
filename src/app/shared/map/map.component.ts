@@ -42,7 +42,6 @@ export class MapComponent implements OnInit, AfterViewInit {
   }
   ngAfterViewInit() {
     this.initMap();
-    this.marker.getEventPage().subscribe(data => this.plotEventPage(data));
   }
 
   /**
@@ -94,17 +93,10 @@ export class MapComponent implements OnInit, AfterViewInit {
   }
 
   /**
-   * イベント情報をプロットする.
-   * @remakrs
-   * 本来であればMapComponentsの処理ではないが、暫定的に。
+   * マーカーオブジェクトのプロット.
+   * @param marker マーカーオブジェクト
    */
-  plotEventPage(eventPage: EventPage) {
-    for (const event of eventPage.event_data) {
-      L.marker([event.place_lat, event.place_lon],
-        {title: `${event.title}`}).addTo(this.map)
-        .bindPopup(`${event.title}<br/>${event.content}`);
-        /* html のテンプレート機能を使えば構造化された情報を楽に表示できるかもしれない */
-    }
-  }
-
+  plotMarker(marker: L.Marker) {
+    marker.addTo(this.map);
+}
 }
