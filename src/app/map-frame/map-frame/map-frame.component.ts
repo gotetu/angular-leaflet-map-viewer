@@ -3,6 +3,7 @@ import {MapConfig} from '../../config/map-config';
 import {MarkerService} from '../../services/marker/marker.service';
 import {EventPage} from '../../services/marker/eventmap.city.kawasaki.events.model';
 import * as L from 'leaflet';
+import {MapComponent} from '../../shared/map/map.component';
 
 @Component({
   selector: 'app-map-frame',
@@ -11,6 +12,7 @@ import * as L from 'leaflet';
 })
 export class MapFrameComponent implements OnInit, AfterViewInit {
   center: number[];
+  mapComponent: MapComponent;
 
   constructor({center}: MapConfig,
               private markerService: MarkerService) {
@@ -29,9 +31,11 @@ export class MapFrameComponent implements OnInit, AfterViewInit {
    */
   plotEventPage(eventPage: EventPage) {
     for (const event of eventPage.event_data) {
-      L.marker([event.place_lat, event.place_lon],
-        {title: `${event.title}`})
-        .bindPopup(`${event.title}<br/>${event.content}`);
+      this.mapComponent.plotMarker(
+        L.marker([event.place_lat, event.place_lon],
+          {title: `${event.title}`})
+          .bindPopup(`${event.title}<br/>${event.content}`)
+      );
       /* html のテンプレート機能を使えば構造化された情報を楽に表示できるかもしれない */
     }
   }
