@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Input, OnInit, ViewChild} from '@angular/core';
 import {MapConfig} from '../../config/map-config';
 import {MarkerService} from '../../services/marker/marker.service';
 import {EventPage} from '../../services/marker/eventmap.city.kawasaki.events.model';
@@ -11,8 +11,9 @@ import {MapComponent} from '../../shared/map/map.component';
   styleUrls: ['./map-frame.component.css']
 })
 export class MapFrameComponent implements OnInit, AfterViewInit {
+  @ViewChild(MapComponent)
+  private mapComponent: MapComponent;
   center: number[];
-  mapComponent: MapComponent;
 
   constructor({center}: MapConfig,
               private markerService: MarkerService) {
