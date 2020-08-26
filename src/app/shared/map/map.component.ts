@@ -93,10 +93,14 @@ export class MapComponent implements OnInit, AfterViewInit {
   }
 
   /**
-   * マーカーオブジェクトのプロット.
-   * @param marker マーカーオブジェクト
+   * レイヤオブジェクトのプロット.
+   *
+   * @remarks
+   * レイヤオブジェクトとは、Marker、Polygon等の図形オブジェクトの上位クラスである。
+   *
+   * @param layer レイヤオブジェクト
    */
-  plotMarker(marker: L.Marker) {
-    marker.addTo(this.map);
+  plotMarker(layer: L.Layer) {
+    layer.addTo(this.map);
 }
 }

@@ -27,8 +27,8 @@ export class MapFrameComponent implements OnInit, AfterViewInit {
   }
   /**
    * イベント情報をプロットする.
-   * @remakrs
-   * 本来であればMapComponentsの処理ではないが、暫定的に。
+   *
+   * @param eventPage イベント情報（ページ）
    */
   plotEventPage(eventPage: EventPage) {
     for (const event of eventPage.event_data) {
