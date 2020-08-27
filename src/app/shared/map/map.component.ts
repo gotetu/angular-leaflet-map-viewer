@@ -80,6 +80,15 @@ export class MapComponent implements OnInit, AfterViewInit {
         }), this.layerNames[i]);
     }
     layerControl.addTo(this.map);
+    layerControl.addOverlay(
+      L.layerGroup().addLayer(new L.Marker([35.5746824, 139.66261699999994]))
+        .addLayer(new L.Marker([35.57467, 139.66261699999993]))
+        .addLayer(new L.Marker([35.57466, 139.66261699999992]))
+        .addLayer(new L.Marker([35.57465, 139.66261699999991]))
+        .addLayer(new L.Marker([35.57464, 139.66261699999990]))
+        .addLayer(new L.Marker([35.57463, 139.66261699999989]))
+        .addLayer(new L.Marker([35.57462, 139.66261699999988]))
+      , 'My MarkerLayer').addTo(this.map);
   }
 
   /**
