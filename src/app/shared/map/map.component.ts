@@ -91,6 +91,14 @@ export class MapComponent implements OnInit, AfterViewInit {
         .addLayer(new L.Marker([35.57463, 139.66261699999989]))
         .addLayer(new L.Marker([35.57462, 139.66261699999988]))
       , 'My MarkerLayer 2').addTo(this.map);
+    layerControl.addOverlay(
+      L.layerGroup().addLayer(L.polygon([
+        [35.57465, 139.66261699999991],
+        [35.57464, 139.66261699999990],
+        [35.57463, 139.66261699999989],
+        [35.57462, 139.66261699999988]],
+        {color: 'red'})),
+      'My PolygonLayer').addTo(this.map);
   }
 
   /**
