@@ -99,6 +99,9 @@ export class MapComponent implements OnInit, AfterViewInit {
         [35.57462, 139.66261699999988]],
         {color: 'red'})),
       'My PolygonLayer').addTo(this.map);
+    layerControl.addOverlay((
+      L.circle([35.5746824, 139.66261699999994], {radius: 200})),
+      'My CircleLayer').addTo(this.map);
   }
 
   /**
