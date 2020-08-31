@@ -102,6 +102,14 @@ export class MapComponent implements OnInit, AfterViewInit {
     layerControl.addOverlay((
       L.circle([35.5746824, 139.66261699999994], {radius: 200})),
       'My CircleLayer').addTo(this.map);
+    layerControl.addOverlay(
+      L.layerGroup().addLayer(L.polyline([
+          [35.57465, 139.66261699999991],
+          [35.57464, 139.66261699999990],
+          [35.57463, 139.66261699999989],
+          [35.57462, 139.66261699999988]],
+        {color: 'blue'})),
+      'My PolylineLayer').addTo(this.map);
   }
 
   /**
